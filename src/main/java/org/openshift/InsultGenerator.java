@@ -4,12 +4,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.net.InetAddress;
 
 public class InsultGenerator {
 	public String generateInsult() {
 		String vowels = "AEIOUaeiou";
 		String article = "an";
 		String theInsult = "";
+		InetAddress inetAddress = InetAddress.getLocalHost();
 
 		try {
 			String databaseURL = "jdbc:postgresql://";
@@ -30,6 +32,7 @@ public class InsultGenerator {
 					}
 					theInsult = String.format("you are %s %s %s %s!", article, rs.getString("first"),
 							rs.getString("second"), rs.getString("noun"));
+					theInsult = theInsult + " " + inetAddress.getHostAddress() + " " + inetAddress.getHostName();
 				}
 				rs.close();
 				connection.close();
