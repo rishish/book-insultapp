@@ -7,7 +7,7 @@ import java.sql.Statement;
 import java.net.InetAddress;
 
 public class InsultGenerator {
-	public String generateInsult() {
+	public String generateInsult() throws Exception {
 		String vowels = "AEIOUaeiou";
 		String article = "an";
 		String theInsult = "";
