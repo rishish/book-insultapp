@@ -11,7 +11,7 @@ import javax.ws.rs.Produces;
 public class InsultResource {
     @GET()
     @Produces("application/json")
-    public HashMap<String, String> getInsult() {
+    public HashMap<String, String> getInsult() throws Exception {
         HashMap<String, String> theInsult = new HashMap<String, String>();
         theInsult.put("insult", new InsultGenerator().generateInsult());
         return theInsult;
